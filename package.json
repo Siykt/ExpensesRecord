@@ -15,6 +15,8 @@
     "commander": "^6.1.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
     "xlsx": "^0.16.6"
   }
 }
