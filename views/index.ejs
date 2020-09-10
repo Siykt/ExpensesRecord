@@ -1,3 +1,70 @@
 <%- include('common/header.ejs', { title: title }) %>
-<p>Hello Worold</p>
+
+<div class="container">
+  <h2>账单记录 <small>记录生活中的一点一滴</small></h2>
+
+  <p class="text-right text-muted">今日为: <%= serverDate %></p>
+
+  <div class="row dropdown">
+    <div class="col-xs-7">
+      <span>添加新的消费</span>
+      <button type="button" class="btn dropdown-toggle" id="closeBillType" data-toggle="dropdown">
+        类型
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu" role="menu" aria-labelledby="closeBillType">
+        <li role="presentation" class="dropdown-header">生活琐事</li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="0-1" href="javascript:">出行</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="0-2" href="javascript:">用餐</a>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation" class="dropdown-header">非预期消费</li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="1-1" href="javascript:">理性</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="1-2" href="javascript:">非理性</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-5 text-right">
+      <a href="/history">查看历史账单</a>
+    </div>
+  </div>
+
+  <div class="row mt-10">
+    <div class="col-sm-6">
+      <p class="total text-muted">已经记录了: <%= totalDay %> 共: <%= totalMoney %></p>
+    </div>
+    <div class="col-sm-6">
+      <p class="last-post text-right text-muted">
+        <span>最近一个月添加的账单有: <%= lastMonthUpdate %></span>
+        <span>上次为: <%= lastUpdate %></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <%- include('common/table.ejs', { todayBills }); -%>
+    </div>
+
+    <div class="col-sm-6">
+      <div id="addTodayBillTypeLabelBar" tabindex="0-1" class="mt-10 mb-20">
+        添加
+        <span class="label label-info">生活琐事</span> 
+        <span class="label label-info">出行</span> 
+        的消费
+      </div>
+      <%- include('common/form.ejs'); -%>
+    </div>
+
+  </div>
+</div>
+
 <%- include('common/footer.ejs'); -%>

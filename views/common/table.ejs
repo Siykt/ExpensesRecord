@@ -1,0 +1,23 @@
+<table class="table">
+  <caption>今日账单</caption>
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th>名称</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>总金额</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const billInfo of todayBills) { %>
+    <tr>
+      <td class="<%= billInfo.type.type ? 'warning' : 'info' %>"><%= billInfo.type.name %></td>
+      <td><%= billInfo.name %></td>
+      <td><%= billInfo.money %></td>
+      <td><%= billInfo.count %></td>
+      <td><%= billInfo.total %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

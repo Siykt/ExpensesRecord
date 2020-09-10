@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  .last-post {
+    text-align: left;
+  }
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.user-select-none {
+  user-select: none;
+}
