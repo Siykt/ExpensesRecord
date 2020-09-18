@@ -118,11 +118,40 @@ $(function () {
           layer.load(1);
         },
         success: function (res) {
+          var tr;
+          var data = res.data;
+
+          if ($('#billTable tbody tr').length) {
+            tr = $('#billTable tbody tr').eq(0).clone();
+          } else {
+            var td = $(document.createElement('td'));
+            tr = $(document.createElement('tr'));
+            tr.append(
+              td.clone(),
+              td.clone(),
+              td.clone(),
+              td.clone(),
+              td.clone()
+            );
+          }
+
+          if (data.type.type === '1') {
+            tr.find('td').eq(0).addClass('warning');
+          } else {
+            tr.find('td').eq(0).addClass('info');
+          }
+
+          tr.find('td').eq(0).text(data.type.name);
+          tr.find('td').eq(1).text(data.name);
+          tr.find('td').eq(2).text(data.money);
+          tr.find('td').eq(3).text(data.count);
+          tr.find('td').eq(4).text(data.total);
+          $('#billTable tbody').append(tr);
           layer.closeAll();
-          console.log(res);
         },
         error: function (error) {
           layer.closeAll();
+          layer.msg(error.message);
           console.log(error);
         },
       });
